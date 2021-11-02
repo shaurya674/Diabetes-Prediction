@@ -43,7 +43,7 @@ def main():
             result = "You are Diabetic"
         else:
             result = "You are not Diabetic"
-    st.success(''.format(result))
+    st.success(result)
     if st.button("About"):
         st.text("Lets LEarn")
         st.text("Built with Streamlit")
