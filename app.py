@@ -44,10 +44,7 @@ def main():
         else:
             result = "You are not Diabetic"
     st.success(result)
-    if st.button("About"):
-        st.text("Lets LEarn")
-        st.text("Built with Streamlit")
-
+   
 
 if __name__ == '__main__':
     main()
