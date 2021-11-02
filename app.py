@@ -26,20 +26,24 @@ def main():
     </div>
     """
     st.markdown(html_temp, unsafe_allow_html=True)
-    age = st.text_input("Age", "Type Here")
-    sex = st.text_input("Sex", "Type Here")
-    bps = st.text_input("Blood Pressure", "Type Here")
-    BMI = st.text_input("BMI", "Type Here")
-    imsulin = st.text_input("Insulin", "Type Here")
-    pregnencies = st.text_input("Pregnencies", "Type Here")
-    glucose = st.text_input("Glucose", "Type Here")
-    Skint = st.text_input("Skin Thickness", "Type Here")
-    DiabetesPedigreeFunction = st.text_input("Diabetes Pedigree Function", "Type Here")
+    age = st.text_input("Age")
+    sex = st.text_input("Sex")
+    bps = st.text_input("Blood Pressure")
+    BMI = st.text_input("BMI")
+    imsulin = st.text_input("Insulin")
+    pregnencies = st.text_input("Pregnencies")
+    glucose = st.text_input("Glucose")
+    Skint = st.text_input("Skin Thickness")
+    DiabetesPedigreeFunction = st.text_input("Diabetes Pedigree Function")
 
     result = ""
     if st.button("Predict"):
         result = predict_note_authentication(pregnencies, glucose, bps, Skint, imsulin, BMI, DiabetesPedigreeFunction, age)
-    st.success('The output is {}'.format(result))
+        if result==1:
+            result = "You are Diabetic"
+        else:
+            result = "You are not Diabetic"
+    st.success(''.format(result))
     if st.button("About"):
         st.text("Lets LEarn")
         st.text("Built with Streamlit")
